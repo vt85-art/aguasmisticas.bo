@@ -3,144 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ojo del Inca - Turismo</title>
+<title>Ojo del Inca</title>
 
 <style>
-body {margin:0;font-family:Arial;background:#f5f5f5;}
-
-/* PORTADA */
-.hero {
-    background:url("https://media-cdn.tripadvisor.com/media/photo-s/09/6a/5b/78/ojo-del-inca.jpg") center/cover;
-    height:100vh;display:flex;align-items:center;justify-content:center;
-    color:white;text-align:center;
+body {
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    color:white;
 }
-.hero h1 {background:rgba(0,0,0,0.6);padding:20px;}
+
+/* FONDO */
+.hero {
+    height:100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+    url("foto1.jpg") center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1 {
+    font-size:50px;
+}
 
 /* MENÚ */
-nav {background:#111;padding:15px;text-align:center;position:sticky;top:0;}
-nav a {color:white;margin:10px;text-decoration:none;}
-
-/* SECCIONES */
-section {padding:50px 20px;}
-.card {
-    background:white;padding:25px;margin:20px auto;
-    max-width:900px;border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* GALERÍA INSTAGRAM */
-.grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:10px;
-}
-.grid img {
-    width:100%;
-    height:200px;
-    object-fit:cover;
-    border-radius:10px;
-}
-
-/* BOTÓN */
-button {
-    background:#00a86b;color:white;
-    padding:10px 20px;border:none;
-    border-radius:20px;
-}
-
-/* WHATSAPP FLOTANTE */
-.whatsapp {
+nav {
     position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:white;
+    top:0;
+    width:100%;
+    background:rgba(0,0,0,0.6);
     padding:15px;
-    border-radius:50%;
-    font-size:20px;
+    text-align:center;
+}
+
+nav a {
+    color:white;
+    margin:10px;
     text-decoration:none;
 }
 
-/* RESPONSIVE */
-@media(max-width:600px){
-    .hero h1{font-size:22px;}
+/* IDIOMA */
+select {
+    padding:5px;
+    border-radius:5px;
+}
+
+/* SECCIÓN */
+.section {
+    padding:80px 20px;
+    background:#111;
+}
+
+/* ANIMACIÓN */
+.fade {
+    opacity:0;
+    transform:translateY(30px);
+    transition:1s;
+}
+.fade.visible {
+    opacity:1;
+    transform:translateY(0);
 }
 </style>
+
 </head>
 
 <body>
 
-<!-- PORTADA -->
-<div class="hero">
-    <h1>Ojo del Inca 🌿<br>Ruta Geotérmica Ancestral</h1>
-</div>
-
 <!-- MENÚ -->
 <nav>
-<a href="#destino">Destino</a>
-<a href="#galeria">Galería</a>
-<a href="#reserva">Reservas</a>
-<a href="#mapa">Mapa</a>
+<a href="#info">Info</a>
+<a href="#reserva">Reserva</a>
+
+<select onchange="cambiarIdioma(this.value)">
+<option value="es">ES</option>
+<option value="en">EN</option>
+<option value="fr">FR</option>
+<option value="it">IT</option>
+<option value="pt">PT</option>
+<option value="ay">AY</option>
+<option value="qu">QU</option>
+</select>
 </nav>
 
-<!-- DESTINO -->
-<section id="destino">
-<div class="card">
-<h2>Sobre el destino</h2>
-<p>
-El Ojo del Inca es una laguna geotérmica en Tarapaya, Potosí,
-con aguas minerales y un fuerte valor cultural ancestral.
+<!-- PORTADA -->
+<div class="hero">
+<h1 id="titulo">Ojo del Inca</h1>
+</div>
+
+<!-- INFO -->
+<div class="section fade">
+<p id="descripcion">
+Destino geotérmico único en Bolivia con aguas termales y energía ancestral.
 </p>
 </div>
-</section>
 
-<!-- GALERÍA INSTAGRAM -->
-<section id="galeria">
-<div class="card">
-<h2>Galería</h2>
-
-<div class="grid">
-<img src="https://media-cdn.tripadvisor.com/media/photo-s/09/6a/5b/78/ojo-del-inca.jpg">
-<img src="https://media-cdn.tripadvisor.com/media/photo-s/0a/89/52/68/ojo-del-inca.jpg">
-<img src="https://media-cdn.tripadvisor.com/media/photo-s/04/0b/5f/5e/ojo-del-inca.jpg">
-<img src="https://media-cdn.tripadvisor.com/media/photo-s/0d/7c/0b/5f/ojo-del-inca.jpg">
+<!-- RESERVA -->
+<div class="section fade">
+<h2 id="reservaText">Reservar experiencia</h2>
+<button>Reservar</button>
 </div>
 
-</div>
-</section>
+<!-- SCRIPT IDIOMA -->
+<script>
+const textos = {
+es: {
+titulo: "Ojo del Inca",
+descripcion: "Destino geotérmico único en Bolivia con aguas termales.",
+reserva: "Reservar experiencia"
+},
+en: {
+titulo: "Inca Eye",
+descripcion: "Unique geothermal destination in Bolivia.",
+reserva: "Book experience"
+},
+fr: {
+titulo: "Œil de l'Inca",
+descripcion: "Destination géothermique unique en Bolivie.",
+reserva: "Réserver"
+},
+it: {
+titulo: "Occhio dell'Inca",
+descripcion: "Destinazione geotermica unica in Bolivia.",
+reserva: "Prenota"
+},
+pt: {
+titulo: "Olho do Inca",
+descripcion: "Destino geotérmico único na Bolívia.",
+reserva: "Reservar"
+},
+ay: {
+titulo: "Inka Nayra",
+descripcion: "Bolivia markan uñt'ata uma jalsu.",
+reserva: "Reserva luraña"
+},
+qu: {
+titulo: "Inka Ñawi",
+descripcion: "Bolivia suyupi qochamanta yaku.",
+reserva: "Reserva ruwana"
+}
+};
 
-<!-- RESERVAS -->
-<section id="reserva">
-<div class="card">
-<h2>Reservar experiencia</h2>
+function cambiarIdioma(lang){
+document.getElementById("titulo").innerText = textos[lang].titulo;
+document.getElementById("descripcion").innerText = textos[lang].descripcion;
+document.getElementById("reservaText").innerText = textos[lang].reserva;
+}
 
-<form>
-<input type="text" placeholder="Nombre" style="width:100%;padding:10px;margin:5px;">
-<input type="email" placeholder="Correo" style="width:100%;padding:10px;margin:5px;">
-<input type="date" style="width:100%;padding:10px;margin:5px;">
-<textarea placeholder="Mensaje" style="width:100%;padding:10px;margin:5px;"></textarea>
-
-<button type="submit">Reservar</button>
-</form>
-
-<p>Precio: 585 Bs por persona</p>
-
-</div>
-</section>
-
-<!-- MAPA -->
-<section id="mapa">
-<div class="card">
-<h2>Ubicación</h2>
-
-<iframe src="https://www.google.com/maps?q=Ojo+del+Inca+Potosi&output=embed"
-width="100%" height="300" style="border:0;"></iframe>
-
-</div>
-</section>
-
-<!-- WHATSAPP FLOTANTE -->
-<a href="https://wa.me/59170123456" class="whatsapp">💬</a>
+/* ANIMACIÓN */
+const fades = document.querySelectorAll('.fade');
+window.addEventListener('scroll', () => {
+    fades.forEach(el => {
+        if(el.getBoundingClientRect().top < window.innerHeight - 50){
+            el.classList.add('visible');
+        }
+    });
+});
+</script>
 
 </body>
 </html>
