@@ -6,161 +6,127 @@
 <title>Ojo del Inca</title>
 
 <style>
-body {
-    margin:0;
-    font-family: 'Segoe UI', sans-serif;
-    color:white;
-}
+body {margin:0;font-family:'Segoe UI';color:white;background:black;}
 
-/* FONDO */
+/* PORTADA */
 .hero {
-    height:100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
-    url("foto1.jpg") center/cover;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+height:100vh;
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),
+url("ojo del inca con montanas y relieve de fondo.jpg") center/cover;
+display:flex;justify-content:center;align-items:center;text-align:center;
 }
-
-.hero h1 {
-    font-size:50px;
-}
+.hero h1 {font-size:50px;}
 
 /* MENÚ */
 nav {
-    position:fixed;
-    top:0;
-    width:100%;
-    background:rgba(0,0,0,0.6);
-    padding:15px;
-    text-align:center;
+position:fixed;width:100%;top:0;
+background:rgba(0,0,0,0.6);
+padding:15px;text-align:center;
+}
+nav a {color:white;margin:10px;text-decoration:none;}
+
+/* SECCIONES */
+.section {padding:80px 20px;text-align:center;}
+
+.bg1 {
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),
+url("Laguna-Tarapaya.jpg") center/cover;
 }
 
-nav a {
-    color:white;
-    margin:10px;
-    text-decoration:none;
+.bg2 {
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),
+url("foto de paisaje de fondo con personas en las aguas termales.jpg") center/cover;
 }
 
-/* IDIOMA */
-select {
-    padding:5px;
-    border-radius:5px;
+/* GALERÍA */
+.grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:10px;
+padding:20px;
+}
+.grid img {
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
 }
 
-/* SECCIÓN */
-.section {
-    padding:80px 20px;
-    background:#111;
+/* BOTÓN */
+button {
+background:#00a86b;color:white;
+padding:12px 25px;border:none;
+border-radius:25px;
+font-size:16px;
 }
 
-/* ANIMACIÓN */
-.fade {
-    opacity:0;
-    transform:translateY(30px);
-    transition:1s;
+/* WHATSAPP */
+.whatsapp {
+position:fixed;bottom:20px;right:20px;
+background:#25D366;padding:15px;border-radius:50%;
+color:white;font-size:20px;text-decoration:none;
 }
-.fade.visible {
-    opacity:1;
-    transform:translateY(0);
+
+/* RESPONSIVE */
+@media(max-width:600px){
+.hero h1{font-size:28px;}
 }
 </style>
-
 </head>
 
 <body>
 
 <!-- MENÚ -->
 <nav>
-<a href="#info">Info</a>
-<a href="#reserva">Reserva</a>
-
-<select onchange="cambiarIdioma(this.value)">
-<option value="es">ES</option>
-<option value="en">EN</option>
-<option value="fr">FR</option>
-<option value="it">IT</option>
-<option value="pt">PT</option>
-<option value="ay">AY</option>
-<option value="qu">QU</option>
-</select>
+<a href="#info">Destino</a>
+<a href="#galeria">Galería</a>
+<a href="#reserva">Reservas</a>
 </nav>
 
 <!-- PORTADA -->
 <div class="hero">
-<h1 id="titulo">Ojo del Inca</h1>
+<h1>Ojo del Inca 🌿</h1>
 </div>
 
 <!-- INFO -->
-<div class="section fade">
-<p id="descripcion">
-Destino geotérmico único en Bolivia con aguas termales y energía ancestral.
+<div class="section bg1">
+<h2>Experiencia única</h2>
+<p>
+Relájate en aguas termales ancestrales rodeado de montañas,
+historia y energía natural.
 </p>
 </div>
 
-<!-- RESERVA -->
-<div class="section fade">
-<h2 id="reservaText">Reservar experiencia</h2>
-<button>Reservar</button>
+<!-- GALERÍA -->
+<div class="section" id="galeria">
+<h2>Galería</h2>
+
+<div class="grid">
+<img src="mujer de espaldas disfrutando de las aguas termales con paisaje de fondo.jpg">
+<img src="foto de paisaje de fondo con personas en las aguas termales.jpg">
+<img src="foto paisaje de mujer banandose en la piscina al aire libre.jpg">
+<img src="foto panoramica hombre mirando paisaje ojo del inca.jpg">
+<img src="Laguna-Tarapaya.jpg">
+<img src="Can-you-swim-in-the-Ojo-del-Inca.jpg">
+<img src="Directions-to-Ojo-del-Inca-Potosi.jpg">
+<img src="kalapurka platillo sopa potosi.jpg">
 </div>
 
-<!-- SCRIPT IDIOMA -->
-<script>
-const textos = {
-es: {
-titulo: "Ojo del Inca",
-descripcion: "Destino geotérmico único en Bolivia con aguas termales.",
-reserva: "Reservar experiencia"
-},
-en: {
-titulo: "Inca Eye",
-descripcion: "Unique geothermal destination in Bolivia.",
-reserva: "Book experience"
-},
-fr: {
-titulo: "Œil de l'Inca",
-descripcion: "Destination géothermique unique en Bolivie.",
-reserva: "Réserver"
-},
-it: {
-titulo: "Occhio dell'Inca",
-descripcion: "Destinazione geotermica unica in Bolivia.",
-reserva: "Prenota"
-},
-pt: {
-titulo: "Olho do Inca",
-descripcion: "Destino geotérmico único na Bolívia.",
-reserva: "Reservar"
-},
-ay: {
-titulo: "Inka Nayra",
-descripcion: "Bolivia markan uñt'ata uma jalsu.",
-reserva: "Reserva luraña"
-},
-qu: {
-titulo: "Inka Ñawi",
-descripcion: "Bolivia suyupi qochamanta yaku.",
-reserva: "Reserva ruwana"
-}
-};
+</div>
 
-function cambiarIdioma(lang){
-document.getElementById("titulo").innerText = textos[lang].titulo;
-document.getElementById("descripcion").innerText = textos[lang].descripcion;
-document.getElementById("reservaText").innerText = textos[lang].reserva;
-}
+<!-- RESERVAS -->
+<div class="section bg2" id="reserva">
+<h2>Reserva tu experiencia</h2>
+<p>Vive una noche mágica en el Ojo del Inca</p>
 
-/* ANIMACIÓN */
-const fades = document.querySelectorAll('.fade');
-window.addEventListener('scroll', () => {
-    fades.forEach(el => {
-        if(el.getBoundingClientRect().top < window.innerHeight - 50){
-            el.classList.add('visible');
-        }
-    });
-});
-</script>
+<button onclick="window.open('https://wa.me/59170123456')">
+Reservar por WhatsApp
+</button>
+
+</div>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/59170123456" class="whatsapp">💬</a>
 
 </body>
 </html>
