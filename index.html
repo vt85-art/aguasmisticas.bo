@@ -2,136 +2,104 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Ojo del Inca - Ruta Geotérmica Ancestral</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ojo del Inca - Turismo</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-}
+body {margin:0;font-family:Arial;background:#f5f5f5;}
 
 /* PORTADA */
 .hero {
-    background: url("https://media-cdn.tripadvisor.com/media/photo-s/09/6a/5b/78/ojo-del-inca.jpg") center/cover;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
+    background:url("https://media-cdn.tripadvisor.com/media/photo-s/09/6a/5b/78/ojo-del-inca.jpg") center/cover;
+    height:100vh;display:flex;align-items:center;justify-content:center;
+    color:white;text-align:center;
 }
-
-.hero h1 {
-    font-size: 45px;
-    background: rgba(0,0,0,0.5);
-    padding: 20px;
-}
+.hero h1 {background:rgba(0,0,0,0.6);padding:20px;}
 
 /* MENÚ */
-nav {
-    background: #111;
-    padding: 15px;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    margin: 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
+nav {background:#111;padding:15px;text-align:center;position:sticky;top:0;}
+nav a {color:white;margin:10px;text-decoration:none;}
 
 /* SECCIONES */
-section {
-    padding: 50px;
-    text-align: center;
-}
-
+section {padding:50px 20px;}
 .card {
-    background: white;
-    padding: 25px;
-    margin: 20px auto;
-    max-width: 800px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    background:white;padding:25px;margin:20px auto;
+    max-width:900px;border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* GALERÍA */
-.galeria {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+/* GALERÍA INSTAGRAM */
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:10px;
+}
+.grid img {
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
 }
 
-.galeria img {
-    width: 250px;
-    margin: 10px;
-    border-radius: 10px;
-}
-
-/* BOTONES */
+/* BOTÓN */
 button {
-    background: #00a86b;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
+    background:#00a86b;color:white;
+    padding:10px 20px;border:none;
+    border-radius:20px;
 }
 
-button:hover {
-    background: #007f50;
+/* WHATSAPP FLOTANTE */
+.whatsapp {
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:15px;
+    border-radius:50%;
+    font-size:20px;
+    text-decoration:none;
 }
 
-/* LINKS */
-a {
-    color: #00a86b;
-    text-decoration: none;
-    font-weight: bold;
+/* RESPONSIVE */
+@media(max-width:600px){
+    .hero h1{font-size:22px;}
 }
 </style>
-
 </head>
 
 <body>
 
 <!-- PORTADA -->
 <div class="hero">
-    <div>
-        <h1>Ojo del Inca 🌿<br>Ruta Geotérmica Ancestral</h1>
-        <p>Donde la historia fluye y el alma se renueva ✨</p>
-    </div>
+    <h1>Ojo del Inca 🌿<br>Ruta Geotérmica Ancestral</h1>
 </div>
 
 <!-- MENÚ -->
 <nav>
-    <a href="#destino">Destino</a>
-    <a href="#galeria">Galería</a>
-    <a href="#experiencia">Experiencia</a>
-    <a href="#ruta">Ruta</a>
-    <a href="#video">Video</a>
-    <a href="#precio">Precio</a>
-    <a href="#contacto">Contacto</a>
+<a href="#destino">Destino</a>
+<a href="#galeria">Galería</a>
+<a href="#reserva">Reservas</a>
+<a href="#mapa">Mapa</a>
 </nav>
 
 <!-- DESTINO -->
 <section id="destino">
 <div class="card">
-<h2>Sobre el Ojo del Inca</h2>
+<h2>Sobre el destino</h2>
 <p>
-El Ojo del Inca es una laguna geotérmica de origen volcánico ubicada en Tarapaya, a aproximadamente 26 km de la ciudad de Potosí. 
-Sus aguas ricas en minerales y su historia vinculada al Imperio Inca lo convierten en un destino turístico único, místico y terapéutico.
+El Ojo del Inca es una laguna geotérmica en Tarapaya, Potosí,
+con aguas minerales y un fuerte valor cultural ancestral.
 </p>
 </div>
 </section>
 
-<!-- GALERÍA -->
+<!-- GALERÍA INSTAGRAM -->
 <section id="galeria">
 <div class="card">
 <h2>Galería</h2>
 
-<div class="galeria">
+<div class="grid">
 <img src="https://media-cdn.tripadvisor.com/media/photo-s/09/6a/5b/78/ojo-del-inca.jpg">
 <img src="https://media-cdn.tripadvisor.com/media/photo-s/0a/89/52/68/ojo-del-inca.jpg">
 <img src="https://media-cdn.tripadvisor.com/media/photo-s/04/0b/5f/5e/ojo-del-inca.jpg">
@@ -141,94 +109,38 @@ Sus aguas ricas en minerales y su historia vinculada al Imperio Inca lo conviert
 </div>
 </section>
 
-<!-- EXPERIENCIA -->
-<section id="experiencia">
+<!-- RESERVAS -->
+<section id="reserva">
 <div class="card">
-<h2>Experiencia Turística</h2>
+<h2>Reservar experiencia</h2>
 
-<ul style="text-align:left; max-width:600px; margin:auto;">
-<li>Transporte desde Potosí</li>
-<li>Senderismo guiado</li>
-<li>Interpretación histórica y cultural</li>
-<li>Baño en aguas termales</li>
-<li>Yoga y relajación en altura</li>
-<li>Fogata nocturna y relatos ancestrales</li>
-<li>Observación de estrellas</li>
-<li>Alojamiento en cabañas</li>
-</ul>
+<form>
+<input type="text" placeholder="Nombre" style="width:100%;padding:10px;margin:5px;">
+<input type="email" placeholder="Correo" style="width:100%;padding:10px;margin:5px;">
+<input type="date" style="width:100%;padding:10px;margin:5px;">
+<textarea placeholder="Mensaje" style="width:100%;padding:10px;margin:5px;"></textarea>
 
-<p>
-Una experiencia completa de bienestar, cultura y conexión con la naturaleza.
-</p>
+<button type="submit">Reservar</button>
+</form>
+
+<p>Precio: 525 Bs por persona</p>
 
 </div>
 </section>
 
-<!-- RUTA -->
-<section id="ruta">
+<!-- MAPA -->
+<section id="mapa">
 <div class="card">
-<h2>Ruta de Acceso</h2>
+<h2>Ubicación</h2>
 
-<ul style="text-align:left; max-width:500px; margin:auto;">
-<li>Distancia: 23.84 km</li>
-<li>Tiempo estimado: 2 horas</li>
-<li>Dificultad: Moderada</li>
-<li>Altitud máxima: 3.897 msnm</li>
-</ul>
-
-<p>
-El recorrido ofrece paisajes del altiplano boliviano y una transición natural desde la ciudad hacia un entorno místico.
-</p>
+<iframe src="https://www.google.com/maps?q=Ojo+del+Inca+Potosi&output=embed"
+width="100%" height="300" style="border:0;"></iframe>
 
 </div>
 </section>
 
-<!-- VIDEO -->
-<section id="video">
-<div class="card">
-<h2>Experiencia en Video</h2>
-
-<iframe width="300" height="500"
-src="https://www.youtube.com/embed/S2XpdXm9krY"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
-</div>
-</section>
-
-<!-- PRECIO -->
-<section id="precio">
-<div class="card">
-<h2>Precio del Paquete</h2>
-
-<p>
-Experiencia 2 días / 1 noche<br>
-Todo incluido
-</p>
-
-<h3>525 Bs por persona</h3>
-
-</div>
-</section>
-
-<!-- CONTACTO -->
-<section id="contacto">
-<div class="card">
-<h2>Contáctanos</h2>
-
-<a href="https://wa.me/59170123456" target="_blank">
-<button>WhatsApp</button>
-</a>
-
-<p><br>Instagram:<br>
-<a href="https://instagram.com/aguasmisticas">@aguasmisticas</a></p>
-
-<p><br>Web:<br>
-<a href="https://www.aguasmisticas.com">www.aguasmisticas.com</a></p>
-
-</div>
-</section>
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/59170123456" class="whatsapp">💬</a>
 
 </body>
 </html>
