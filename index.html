@@ -183,6 +183,15 @@ nav{flex-direction:column;}
 </div>
 </section>
 
+<!-- VIDEO PROMOCIONAL -->
+<section class="section">
+<h2 id="tvideo">Video</h2>
+
+<video controls style="width:100%;border-radius:15px;">
+<source src="videopromocionaltarapaya.mp4" type="video/mp4">
+</video>
+
+</section>
 <!-- ACTIVIDADES -->
 <section class="section" id="actividades">
 <div class="grid">
@@ -214,6 +223,18 @@ src="https://maps.google.com/maps?q=Ojo%20del%20Inca%20Potosi&t=&z=13&ie=UTF8&iw
 </iframe>
 </section>
 
+<!-- LUGARES CERCANOS -->
+<section class="section">
+<h2 id="t11">Lugares Cercanos</h2>
+
+<div class="gallery">
+<img src="centrodesaludtarapaya.jpg">
+<img src="estaciondeserviciogasolineratarapaya.jpg">
+<img src="iglesiadetarapaya.jpg">
+<img src="plazaalonzodeibaneztarapaya.jpg">
+</div>
+
+</section>
 <!-- GALERIA -->
 <section class="section">
 <h2>Galería</h2>
@@ -259,6 +280,8 @@ txt:[
 "Galería",
 "Reservar"
 ]
+tvideo:"Video",
+t11:"Lugares Cercanos"
 },
 
 en:{
@@ -276,6 +299,8 @@ txt:[
 "Gallery",
 "Book"
 ]
+tvideo:"Video",
+t11:"Nearby Places"
 },
 
 fr:{
@@ -293,6 +318,8 @@ txt:[
 "Galerie",
 "Réserver"
 ]
+tvideo:"Vidéo",
+t11:"Lieux proches"
 },
 
 qu:{
@@ -310,7 +337,11 @@ txt:[
 "Rikchay",
 "Reserva"
 ]
+tvideo:"Video",
+t11:"Kaylla llaqtakuna"
 }
+document.getElementById("tvideo").innerText = t[lang].tvideo;
+document.getElementById("t11").innerText = t[lang].t11;
 };
 
 /* MENÚ */
