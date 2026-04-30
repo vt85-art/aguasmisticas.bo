@@ -7,20 +7,19 @@
 
 <style>
 body {margin:0;font-family:'Segoe UI';color:white;background:black;}
-html {
-scroll-behavior: smooth;
-/* ANIMACIÓN */
+html {scroll-behavior:smooth;}
+
+/* ANIMACIONES */
 .animar {
-opacity: 0;
-transform: translateY(40px);
-transition: all 0.8s ease;
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+.animar.visible {
+opacity:1;
+transform:translateY(0);
 }
 
-.animar.visible {
-opacity: 1;
-transform: translateY(0);
-}
-}
 /* PORTADA */
 .hero {
 height:100vh;
@@ -31,31 +30,20 @@ display:flex;justify-content:center;align-items:center;text-align:center;
 .hero h1 {font-size:50px;}
 
 /* MENÚ */
-nav {<nav>
-<div style="display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:15px;">
+nav {
+position:fixed;
+width:100%;
+top:0;
+background:rgba(0,0,0,0.7);
+padding:10px;
+text-align:center;
+z-index:1000;
+}
 
-<a href="#destinos">Dónde ir</a>
-<a href="#actividades">Qué hacer</a>
-<a href="#planifica">Planifica tu viaje</a>
-<a href="#info">Información</a>
-
-<input type="text" placeholder="Buscar..." 
-style="padding:5px;border-radius:5px;border:none;">
-
-</div>
-
-<!-- BANDERAS -->
-<div class="flags">
-<img src="Flag_of_Spain.svg.png" onclick="cambiarIdioma('es')">
-<img src="banderaidiomaingles.jpg" onclick="cambiarIdioma('en')">
-<img src="Flag_of_France.svg.webp" onclick="cambiarIdioma('fr')">
-<img src="Flag_of_Italy.svg" onclick="cambiarIdioma('it')">
-<img src="Flag_of_Brazil.svg.webp" onclick="cambiarIdioma('pt')">
-<img src="flagwhipalaaymara.jpg" onclick="cambiarIdioma('ay')">
-<img src="flagwiphalaquechua.jpg" onclick="cambiarIdioma('qu')">
-</div>
-
-</nav>
+nav a {
+color:white;
+margin:10px;
+text-decoration:none;
 }
 
 /* BANDERAS */
@@ -67,7 +55,10 @@ border-radius:5px;
 }
 
 /* SECCIONES */
-.section {padding:80px 20px;text-align:center;}
+.section {
+padding:80px 20px;
+text-align:center;
+}
 
 .grid {
 display:grid;
@@ -75,41 +66,40 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:10px;
 padding:20px;
 }
+
 .grid img {
-width:100%;height:250px;
-object-fit:cover;border-radius:10px;
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
 }
 
 /* WHATSAPP */
 .whatsapp {
-position:fixed;bottom:20px;right:20px;
-background:#25D366;padding:15px;border-radius:50%;
-color:white;font-size:20px;text-decoration:none;
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+color:white;
+font-size:20px;
+text-decoration:none;
 }
 </style>
 </head>
-<script>
-const elementos = document.querySelectorAll('.animar');
 
-function mostrarElementos() {
-const trigger = window.innerHeight * 0.85;
-
-elementos.forEach(el => {
-const top = el.getBoundingClientRect().top;
-
-if (top < trigger) {
-el.classList.add('visible');
-}
-});
-}
-
-window.addEventListener('scroll', mostrarElementos);
-mostrarElementos();
-</script>
 <body>
 
-<!-- MENÚ + IDIOMAS -->
+<!-- MENÚ -->
 <nav>
+<a href="#destinos">Dónde ir</a>
+<a href="#actividades">Qué hacer</a>
+<a href="#planifica">Planifica tu viaje</a>
+<a href="#info">Información</a>
+
+<br>
+
 <div class="flags">
 <img src="Flag_of_Spain.svg.png" onclick="cambiarIdioma('es')">
 <img src="banderaidiomaingles.jpg" onclick="cambiarIdioma('en')">
@@ -126,90 +116,74 @@ mostrarElementos();
 <h1 id="titulo">Ojo del Inca 🌿</h1>
 </div>
 
-<!-- INFO -->
-<div class="section">
+<!-- SECCIONES -->
+<div class="section animar" id="destinos">
 <h2 id="subtitulo">Experiencia única</h2>
-<p id="descripcion">
-Relájate en aguas termales ancestrales rodeado de montañas.
-</p>
+<p id="descripcion">Relájate en aguas termales ancestrales.</p>
+</div>
+
+<div class="section animar" id="actividades">
+<h2>Qué hacer</h2>
+<p>Baños termales, yoga, senderismo y más.</p>
+</div>
+
+<div class="section animar" id="planifica">
+<h2>Planifica tu viaje</h2>
+<p>Incluye transporte, alojamiento y experiencias.</p>
+</div>
+
+<div class="section animar" id="info">
+<h2>Información</h2>
+<p>Ubicado cerca de Potosí a gran altitud.</p>
 </div>
 
 <!-- GALERÍA -->
 <div class="section">
 <h2>Galería</h2>
-
 <div class="grid">
 <img src="mujer de espaldas disfrutando de las aguas termales con paisaje de fondo.jpg">
 <img src="foto de paisaje de fondo con personas en las aguas termales.jpg">
 <img src="foto paisaje de mujer banandose en la piscina al aire libre.jpg">
 <img src="foto panoramica hombre mirando paisaje ojo del inca.jpg">
 </div>
-
 </div>
 
 <!-- RESERVA -->
 <div class="section">
 <h2 id="reserva">Reserva tu experiencia</h2>
-<button onclick="window.open('https://wa.me/59170123456')">
-Reservar
-</button>
+<button onclick="window.open('https://wa.me/59170123456')">Reservar</button>
 </div>
 
 <!-- WHATSAPP -->
 <a href="https://wa.me/59170123456" class="whatsapp">💬</a>
 
+<!-- SCRIPT ANIMACIONES -->
+<script>
+const elementos = document.querySelectorAll('.animar');
+
+function mostrarElementos(){
+const trigger = window.innerHeight * 0.85;
+elementos.forEach(el=>{
+const top = el.getBoundingClientRect().top;
+if(top < trigger){el.classList.add('visible');}
+});
+}
+window.addEventListener('scroll', mostrarElementos);
+mostrarElementos();
+</script>
+
 <!-- SCRIPT IDIOMAS -->
 <script>
-const textos = {
-es: {
-titulo:"Ojo del Inca 🌿",
-subtitulo:"Experiencia única",
-descripcion:"Relájate en aguas termales ancestrales rodeado de montañas.",
-reserva:"Reserva tu experiencia"
-},
-en: {
-titulo:"Inca Eye 🌿",
-subtitulo:"Unique experience",
-descripcion:"Relax in ancestral thermal waters surrounded by mountains.",
-reserva:"Book your experience"
-},
-fr: {
-titulo:"Œil de l'Inca 🌿",
-subtitulo:"Expérience unique",
-descripcion:"Détendez-vous dans des eaux thermales entourées de montagnes.",
-reserva:"Réserver"
-},
-it: {
-titulo:"Occhio dell'Inca 🌿",
-subtitulo:"Esperienza unica",
-descripcion:"Rilassati nelle acque termali tra le montagne.",
-reserva:"Prenota"
-},
-pt: {
-titulo:"Olho do Inca 🌿",
-subtitulo:"Experiência única",
-descripcion:"Relaxe nas águas termais rodeadas por montanhas.",
-reserva:"Reservar"
-},
-ay: {
-titulo:"Inka Nayra 🌿",
-subtitulo:"Suma uñtawi",
-descripcion:"Uma jalsunakan samart'aña.",
-reserva:"Reserva luraña"
-},
-qu: {
-titulo:"Inka Ñawi 🌿",
-subtitulo:"Allin experiencia",
-descripcion:"Yaku ukupi samaykuy.",
-reserva:"Reserva ruwana"
-}
+const textos={
+es:{titulo:"Ojo del Inca 🌿",subtitulo:"Experiencia única",descripcion:"Relájate en aguas termales ancestrales.",reserva:"Reserva tu experiencia"},
+en:{titulo:"Inca Eye 🌿",subtitulo:"Unique experience",descripcion:"Relax in thermal waters.",reserva:"Book your experience"}
 };
 
 function cambiarIdioma(lang){
-document.getElementById("titulo").innerText = textos[lang].titulo;
-document.getElementById("subtitulo").innerText = textos[lang].subtitulo;
-document.getElementById("descripcion").innerText = textos[lang].descripcion;
-document.getElementById("reserva").innerText = textos[lang].reserva;
+document.getElementById("titulo").innerText=textos[lang].titulo;
+document.getElementById("subtitulo").innerText=textos[lang].subtitulo;
+document.getElementById("descripcion").innerText=textos[lang].descripcion;
+document.getElementById("reserva").innerText=textos[lang].reserva;
 }
 </script>
 
