@@ -6,85 +6,96 @@
 <title>Ojo del Inca</title>
 
 <style>
-body {
+:root{
+--primary:#00a86b;
+--bg:#0b0b0b;
+--glass:rgba(0,0,0,0.6);
+}
+
+body{
 margin:0;
-font-family:'Segoe UI', sans-serif;
+font-family:'Segoe UI',sans-serif;
+background:var(--bg);
 color:white;
-background:#0a0a0a;
 }
 
 /* NAV */
-nav {
+nav{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(0,0,0,0.7);
-backdrop-filter: blur(10px);
-padding:15px;
 display:flex;
-justify-content:center;
-gap:20px;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:var(--glass);
+backdrop-filter:blur(10px);
 z-index:1000;
 }
 
-nav a {
+nav a{
 color:white;
 text-decoration:none;
+margin:0 10px;
 font-size:14px;
 }
 
+/* BANDERAS */
+.flags img{
+width:28px;
+cursor:pointer;
+margin-left:8px;
+border-radius:4px;
+}
+
 /* HERO */
-.hero {
+.hero{
 height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-align:center;
-background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.8)),
+background:
+linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.8)),
 url("ojo del inca con montanas y relieve de fondo.jpg") center/cover;
 }
 
-.hero h1 {
-font-size:60px;
-margin:0;
-}
-
-.hero p {
-font-size:18px;
-opacity:0.8;
-}
+.hero h1{font-size:60px;margin:0;}
+.hero p{opacity:0.8;}
 
 /* SECCIONES */
-.section {
+.section{
 padding:100px 10%;
+opacity:0;
+transform:translateY(40px);
+transition:0.8s;
 }
 
-.section h2 {
-font-size:35px;
-margin-bottom:20px;
+.section.visible{
+opacity:1;
+transform:translateY(0);
 }
 
-/* BLOQUES */
-.grid-2 {
+.grid{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:40px;
 align-items:center;
 }
 
-.grid-2 img {
+.grid img{
 width:100%;
 border-radius:15px;
 }
 
-/* GALERÍA */
-.gallery {
+/* GALERIA */
+.gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:10px;
 }
 
-.gallery img {
+.gallery img{
 width:100%;
 height:250px;
 object-fit:cover;
@@ -92,18 +103,26 @@ border-radius:10px;
 }
 
 /* BOTÓN */
-.btn {
-background:#00a86b;
+.btn{
+background:var(--primary);
 padding:12px 25px;
-border-radius:25px;
-color:white;
+border-radius:30px;
 text-decoration:none;
+color:white;
 display:inline-block;
 margin-top:15px;
 }
 
+/* MAPA */
+.map{
+width:100%;
+height:400px;
+border-radius:15px;
+border:none;
+}
+
 /* WHATSAPP */
-.whatsapp {
+.whatsapp{
 position:fixed;
 bottom:20px;
 right:20px;
@@ -115,12 +134,9 @@ font-size:20px;
 
 /* RESPONSIVE */
 @media(max-width:800px){
-.grid-2 {
-grid-template-columns:1fr;
-}
-.hero h1 {
-font-size:35px;
-}
+.grid{grid-template-columns:1fr;}
+.hero h1{font-size:35px;}
+nav{flex-direction:column;}
 }
 </style>
 </head>
@@ -129,91 +145,73 @@ font-size:35px;
 
 <!-- NAV -->
 <nav>
+<div>
 <a href="#destino">Dónde ir</a>
 <a href="#actividades">Qué hacer</a>
 <a href="#planifica">Planifica</a>
-<a href="#info">Info</a>
+<a href="#mapa">Mapa</a>
+</div>
+
+<div class="flags">
+<img src="Flag_of_Spain.svg.png" onclick="lang('es')">
+<img src="banderaidiomaingles.jpg" onclick="lang('en')">
+<img src="Flag_of_France.svg.webp" onclick="lang('fr')">
+</div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
 <div>
-<h1>Ojo del Inca 🌿</h1>
-<p>Bienestar, naturaleza y energía ancestral</p>
+<h1 id="t1">Ojo del Inca 🌿</h1>
+<p id="t2">Bienestar, naturaleza y energía ancestral</p>
 </div>
 </section>
 
 <!-- DESTINO -->
 <section class="section" id="destino">
-<div class="grid-2">
+<div class="grid">
 <div>
-<h2>Un destino único en Bolivia</h2>
-<p>
-El Ojo del Inca es una laguna termal volcánica rodeada de montañas,
-con aguas minerales y energía ancestral.
-</p>
+<h2 id="t3">Un destino único</h2>
+<p id="t4">Laguna volcánica con aguas termales y energía ancestral.</p>
 </div>
-
 <img src="Laguna-Tarapaya.jpg">
 </div>
 </section>
 
 <!-- ACTIVIDADES -->
 <section class="section" id="actividades">
-<div class="grid-2">
-
+<div class="grid">
 <img src="foto de paisaje de fondo con personas en las aguas termales.jpg">
-
 <div>
-<h2>Experiencias que transforman</h2>
-<p>
-Disfruta baños termales, yoga, senderismo y noches bajo las estrellas.
-</p>
+<h2 id="t5">Experiencias</h2>
+<p id="t6">Baños termales, yoga, senderismo y observación de estrellas.</p>
 </div>
-
 </div>
 </section>
 
 <!-- PLANIFICA -->
 <section class="section" id="planifica">
-<div class="grid-2">
+<div class="grid">
 <div>
-<h2>Planifica tu viaje</h2>
-<p>
-Incluye transporte, alojamiento, alimentación y experiencias guiadas.
-</p>
-
-<a href="https://wa.me/59170123456" class="btn">
-Reservar ahora
-</a>
-
+<h2 id="t7">Planifica tu viaje</h2>
+<p id="t8">Paquete completo con transporte, alojamiento y experiencias.</p>
+<a href="https://wa.me/59170123456" class="btn">Reservar</a>
 </div>
-
 <img src="Directions-to-Ojo-del-Inca-Potosi.jpg">
 </div>
 </section>
 
-<!-- INFO -->
-<section class="section" id="info">
-<div class="grid-2">
-
-<img src="Can-you-swim-in-the-Ojo-del-Inca.jpg">
-
-<div>
-<h2>Información importante</h2>
-<p>
-Ubicado a más de 3900 msnm cerca de Potosí.
-Se recomienda aclimatación y seguir indicaciones de seguridad.
-</p>
-</div>
-
-</div>
+<!-- MAPA -->
+<section class="section" id="mapa">
+<h2>Ubicación</h2>
+<iframe class="map"
+src="https://maps.google.com/maps?q=Ojo%20del%20Inca%20Potosi&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
 </section>
 
-<!-- GALERÍA -->
+<!-- GALERIA -->
 <section class="section">
 <h2>Galería</h2>
-
 <div class="gallery">
 <img src="mujer de espaldas disfrutando de las aguas termales con paisaje de fondo.jpg">
 <img src="foto paisaje de mujer banandose en la piscina al aire libre.jpg">
@@ -224,6 +222,37 @@ Se recomienda aclimatación y seguir indicaciones de seguridad.
 
 <!-- WHATSAPP -->
 <a href="https://wa.me/59170123456" class="whatsapp">💬</a>
+
+<!-- ANIMACIONES -->
+<script>
+const sections=document.querySelectorAll('.section');
+window.addEventListener('scroll',()=>{
+sections.forEach(sec=>{
+const top=sec.getBoundingClientRect().top;
+if(top<window.innerHeight-100){sec.classList.add('visible');}
+});
+});
+</script>
+
+<!-- IDIOMAS -->
+<script>
+function lang(l){
+const t={
+es:["Ojo del Inca 🌿","Bienestar, naturaleza y energía ancestral","Un destino único","Laguna volcánica con aguas termales y energía ancestral.","Experiencias","Baños termales, yoga, senderismo y observación de estrellas.","Planifica tu viaje","Paquete completo con transporte, alojamiento y experiencias."],
+en:["Inca Eye 🌿","Wellness, nature and ancestral energy","Unique destination","Volcanic lagoon with thermal waters.","Experiences","Thermal baths, yoga and hiking.","Plan your trip","All inclusive package."],
+fr:["Œil de l'Inca 🌿","Bien-être et nature","Destination unique","Lagune volcanique thermale.","Expériences","Yoga et relaxation.","Planifiez votre voyage","Forfait complet."]
+};
+
+document.getElementById("t1").innerText=t[l][0];
+document.getElementById("t2").innerText=t[l][1];
+document.getElementById("t3").innerText=t[l][2];
+document.getElementById("t4").innerText=t[l][3];
+document.getElementById("t5").innerText=t[l][4];
+document.getElementById("t6").innerText=t[l][5];
+document.getElementById("t7").innerText=t[l][6];
+document.getElementById("t8").innerText=t[l][7];
+}
+</script>
 
 </body>
 </html>
