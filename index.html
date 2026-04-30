@@ -7,7 +7,20 @@
 
 <style>
 body {margin:0;font-family:'Segoe UI';color:white;background:black;}
+html {
+scroll-behavior: smooth;
+/* ANIMACIÓN */
+.animar {
+opacity: 0;
+transform: translateY(40px);
+transition: all 0.8s ease;
+}
 
+.animar.visible {
+opacity: 1;
+transform: translateY(0);
+}
+}
 /* PORTADA */
 .hero {
 height:100vh;
@@ -18,10 +31,31 @@ display:flex;justify-content:center;align-items:center;text-align:center;
 .hero h1 {font-size:50px;}
 
 /* MENÚ */
-nav {
-position:fixed;width:100%;top:0;
-background:rgba(0,0,0,0.6);
-padding:10px;text-align:center;
+nav {<nav>
+<div style="display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:15px;">
+
+<a href="#destinos">Dónde ir</a>
+<a href="#actividades">Qué hacer</a>
+<a href="#planifica">Planifica tu viaje</a>
+<a href="#info">Información</a>
+
+<input type="text" placeholder="Buscar..." 
+style="padding:5px;border-radius:5px;border:none;">
+
+</div>
+
+<!-- BANDERAS -->
+<div class="flags">
+<img src="Flag_of_Spain.svg.png" onclick="cambiarIdioma('es')">
+<img src="banderaidiomaingles.jpg" onclick="cambiarIdioma('en')">
+<img src="Flag_of_France.svg.webp" onclick="cambiarIdioma('fr')">
+<img src="Flag_of_Italy.svg" onclick="cambiarIdioma('it')">
+<img src="Flag_of_Brazil.svg.webp" onclick="cambiarIdioma('pt')">
+<img src="flagwhipalaaymara.jpg" onclick="cambiarIdioma('ay')">
+<img src="flagwiphalaquechua.jpg" onclick="cambiarIdioma('qu')">
+</div>
+
+</nav>
 }
 
 /* BANDERAS */
@@ -54,7 +88,24 @@ color:white;font-size:20px;text-decoration:none;
 }
 </style>
 </head>
+<script>
+const elementos = document.querySelectorAll('.animar');
 
+function mostrarElementos() {
+const trigger = window.innerHeight * 0.85;
+
+elementos.forEach(el => {
+const top = el.getBoundingClientRect().top;
+
+if (top < trigger) {
+el.classList.add('visible');
+}
+});
+}
+
+window.addEventListener('scroll', mostrarElementos);
+mostrarElementos();
+</script>
 <body>
 
 <!-- MENÚ + IDIOMAS -->
